@@ -1,10 +1,11 @@
 <script lang="ts">
 	import type { ActionData } from './$types';
+	import { enhance } from '$app/forms';
 
 	export let form: ActionData;
 </script>
 
-<form method="POST" action="?/create">
+<form method="POST" action="?/create" use:enhance>
 	<input name="name" type="text" />
 	<button>Submit</button>
 </form>
