@@ -11,3 +11,4 @@
 {#if form?.success}
 	<p>Success</p>
 {/if}
+{#if form?.incorrect}<p class="error">Incorrect!</p>{/if}

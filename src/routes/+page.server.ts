@@ -1,4 +1,4 @@
-import { fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { WEBHOOK_URL } from '$env/static/private';
 
@@ -9,6 +9,9 @@ export const actions: Actions = {
 		const body = {
 			content: data.get('name')
 		};
+		if (body.content === 'fail') {
+			return fail(500, { name: 'you failed', incorrect: true });
+		}
 		const res = await fetch(WEBHOOK_URL, {
 			method: 'POST',
 			headers: {
