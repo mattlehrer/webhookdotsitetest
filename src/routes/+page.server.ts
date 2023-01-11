@@ -1,3 +1,4 @@
+import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { WEBHOOK_URL } from '$env/static/private';
 
@@ -23,8 +24,7 @@ export const actions: Actions = {
 			};
 		}
 		return {
-			status: 200,
-			body: 'ok'
+			success: true
 		};
 	}
 };
